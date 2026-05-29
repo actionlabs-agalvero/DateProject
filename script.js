@@ -44,7 +44,7 @@ function selectFood(food) {
         `See you on <br><b>${formattedDate}</b><br>for some <b>${food}</b>!`;
     
     // --- Send Email Data to Formspree ---
-    const formspreeUrl = "https://formspree.io/f/xeednwzb"; 
+    const formspreeUrl = "https://formspree.io/f/meednwlb"; 
 
     fetch(formspreeUrl, {
         method: 'POST',
@@ -53,7 +53,7 @@ function selectFood(food) {
             'Accept': 'application/json'
         },
         body: JSON.stringify({
-            message: "💘 SHE SAID YES! Here are the date details:",
+            message: "💘 WE HAVE A DATE! Here are the date details:",
             scheduledTime: formattedDate,
             foodChoice: food
         })
