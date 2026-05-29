@@ -53,7 +53,7 @@ function selectFood(food) {
             'Accept': 'application/json'
         },
         body: JSON.stringify({
-            message: "💘 WE HAVE A DATE! Here are the date details:",
+            message: "💘 WE HAVE A DATE WITH OUR GIRL! Here are the date details:",
             scheduledTime: formattedDate,
             foodChoice: food
         })
