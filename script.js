@@ -27,7 +27,7 @@ document.getElementById('datePicker').addEventListener('input', (e) => {
     document.getElementById('cringeyMessage').innerText = msgs[Math.floor(Math.random() * msgs.length)];
 });
 
-// 4. Final Selection
+// 4. Final Selection & Email Dispatch
 function selectFood(food) {
     // Fallback if she skips picking a date/time
     if (!selectedDate) {
@@ -41,8 +41,31 @@ function selectFood(food) {
     const formattedDate = dateObj.toLocaleDateString('en-US', options);
     
     document.getElementById('finalDetails').innerHTML = 
-        `See you on <br><b>${formattedDate}</b><br>for some <b>${food}</b>! Screenshot this and send it to your girlfreind for confirmation.`;
+        `See you on <br><b>${formattedDate}</b><br>for some <b>${food}</b>!`;
     
+    // --- Send Email Data to Formspree ---
+    const formspreeUrl = "https://formspree.io/f/xeednwzb"; 
+
+    fetch(formspreeUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            message: "💘 SHE SAID YES! Here are the date details:",
+            scheduledTime: formattedDate,
+            foodChoice: food
+        })
+    })
+    .then(response => {
+        console.log("Schedule successfully emailed!");
+    })
+    .catch(error => {
+        console.error("Network fallback error tracking transmission:", error);
+    });
+    // ------------------------------------
+
     nextPage(4);
 }
 
