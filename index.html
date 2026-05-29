@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Page 1: The Question -->
+    <section id="page1" class="container">
+        <h1>Can I take you out on a date? 🩵</h1>
+        <div class="btn-group">
+            <button id="yesBtn" onclick="nextPage(2)">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </section>
+
+    <!-- Page 2: Date & Time -->
+    <section id="page2" class="container hidden">
+        <h1>Wait, You really said yes? Aaaah! I'm going out with a Princess(Well duh, this is me already.) 🥹</h1>
+        <p>Pick a time when I can admire you in person:</p>
+        <input type="datetime-local" id="datePicker">
+        <p id="cringeyMessage" class="cringe-text"></p>
+        <button onclick="nextPage(3)">Next: The Food</button>
+    </section>
+
+    <!-- Page 3: Food Options -->
+    <section id="page3" class="container hidden">
+        <h1>What are we eating, beautiful? 🍕</h1>
+        <div class="food-grid">
+            <button onclick="selectFood('Pasta')">🍝 Pasta</button>
+            <button onclick="selectFood('Sushi')">🍣 Sushi</button>
+            <button onclick="selectFood('Pizza')">🍕 Pizza</button>
+            <button onclick="selectFood('Ramen')">🍜 Ramen</button>
+            <button onclick="selectFood('Burgers')">🍔 Burgers</button>
+            <button onclick="selectFood('Fast Food')">🍟 Fast Food</button>
+        </div>
+    </section>
+
+    <!-- Page 4: Summary -->
+    <section id="page4" class="container hidden">
+        <h1>It's a Date! ✨</h1>
+        <p id="finalDetails"></p>
+        <h2 class="love-msg">I love you, beautiful. ❤️</h2>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
